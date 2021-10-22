@@ -1,0 +1,12 @@
+#!/bin/bash
+which black 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo 'black not found' >/dev/stderr
+  exit 1
+fi
+which isort 2>&1 >/dev/null
+if [ $? -ne 0 ]; then
+  echo 'isort not found' >/dev/stderr
+  exit 1
+fi
+exec black -q --line-length=80 -S - | isort -y -

@@ -1,0 +1,31 @@
+<!--
+  A freely movable cube (along X and Z) for testing purposes
+-->
+<mujoco model="testcube2d">
+  <compiler angle="degree" coordinate="local" inertiafromgeom="true"/>
+  <option integrator="RK4" timestep="0.01"/>
+  <option>
+    <flag gravity="enable"/>
+  </option>
+
+  <default>
+    <joint armature="1" damping="10" limited="true"/>
+    <geom conaffinity="0" condim="3" density="5.0" friction="1.5 0.1 0.1" margin="0.01" rgba="0.8 0.6 0.4 1"/>
+    <motor ctrllimited="true" ctrlrange="-1 1"/>
+  </default>
+
+  <worldbody>
+    <body name="torso" pos="0 0 0.3">
+      <camera name="side" mode="trackcom" pos="0 -6 1" euler="80 0 0"/>
+      <geom name="torso" pos="0 0 0" size="0.2 0.2 0.2" type="box"/>
+      <joint name="slidex" type="slide" pos="0 0 0" axis="1 0 0" range="-1000 1000"/>
+      <joint name="slidez" type="slide" pos="0 0 0" axis="0 0 1" range="-1000 1000"/>
+    </body>
+  </worldbody>
+
+  <actuator>
+    <motor name="x" joint="slidex" gear="50"/>
+    <motor name="z" joint="slidez" gear="50"/>
+  </actuator>
+</mujoco>
+
