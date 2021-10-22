@@ -1,6 +1,6 @@
 # The Bipedal Skills Benchmark
 
-The bipedal skills benchmark (bisk-rl) is a suite of reinforcement learning
+The bipedal skills benchmark is a suite of reinforcement learning
 environments implemented for the MuJoCo physics simulator. It aims to provide a
 set of tasks that demand a variety of motor skills beyond locomotion, and is
 intended for evaluating skill discovery and hierarchical learning methods. The
